@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator task</title>
+    <style>
+        *{
+            text-align: center;
+        }
+
+            h1{
+            font-size: 40px;
+            color: rgb(57, 70, 192);
+            margin-bottom: 50px;
+        }
+        .calculator {
+            width: 500px;
+            height: 500px;
+            /* border: 1px solid red; */
+            padding: 40px;
+            margin: auto;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        }
+
+        #input{
+            width: 450px;
+            height: 60px;
+            box-shadow: rgba(99, 99, 99, 0.2) 1px 5px 10px 1px;
+            /* border: 1px solid red; */
+            padding: 5px;
+            margin: auto;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            font-size: 40px;
+        }
+
+        #keyboard {
+            width: 450px;
+            height: 360px;
+            /* border: 1px solid red; */
+            padding: 5px;
+            margin: auto;
+            display: grid;
+            gap: 20px;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: auto;
+        }
+
+        #keyboard div {
+            /* border: 1px solid red; */
+            box-shadow: #00000030 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+            text-align: center;
+            padding-top: 25px;
+            font-weight: 900;
+            font-size: 20px;
+            border-radius: 15px;
+        }
+        
+         #keyboard div:hover {
+               cursor: pointer;
+               background-color: #e8b8b8;
+              box-shadow: 0px 4px 15px 2px;
+        }
+        
+        #blk{
+            background-color: rgb(57, 70, 192);
+            color: white;
+        }
+        
+        #rd{
+            background-color: red;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <h1> Calculator</h1>
+
+    <div class="calculator">
+        <div id="input"></div>
+        <div id="keyboard">
+            <div>1</div>
+            <div>2</div>
+            <div>3</div>
+            <div id="blk">+</div>
+            <div>4</div>
+            <div>5</div>
+            <div>6</div>
+            <div id="blk">-</div>
+            <div>7</div>
+            <div>8</div>
+            <div>9</div>
+            <div id="blk">*</div>
+            <div id="rd">C</div>
+            <div>0</div>
+            <div id="blk">/</div>
+            <div id="blk">=</div>
+        </div>
+    </div>
+</body>
+
+</html> 
+<script>
+     let bag="";
+     let keys=document.querySelectorAll("#keyboard>div");
+
+     for(let i=0;i<keys.length;i++){
+        keys[i].addEventListener("click",mycalc);
+     }
+
+     function mycalc(e){
+        let targetnumber=e.target.innerText;
+
+        if(targetnumber=="C"){
+            bag="";
+            document.querySelector("#input").innerText=bag;
+        } else if(targetnumber=="="){
+
+            document.querySelector("#input").innerText=eval(bag); // for calculation eval funtion is used
+        }
+         else {
+           bag=bag+targetnumber;
+            document.querySelector("#input").innerText=bag;
+         }
+     }
+
+</script>
