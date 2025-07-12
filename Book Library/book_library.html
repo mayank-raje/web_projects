@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Book Library</title>
+  <link rel="stylesheet" href="book_library.css">
+</head>
+<body>
+  <h1>📚 My Book Library</h1>
+
+  <div class="controls">
+    <input type="text" id="search" placeholder="Search by title or author">
+    <select id="genreFilter">
+      <option value="">All Genres</option>
+      <option value="Fiction">Fiction</option>
+      <option value="History">History</option>
+      <option value="Science">Science</option>
+    </select>
+  </div>
+
+  <form id="bookForm">
+    <input type="text" id="title" placeholder="Title" required>
+    <input type="text" id="author" placeholder="Author" required>
+    <input type="text" id="genre" placeholder="Genre" required>
+    <button type="submit">Add Book</button>
+  </form>
+
+  <div id="bookList"></div>
+
+  <script src="book_library.js"></script>
+</body>
+</html>
