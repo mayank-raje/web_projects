@@ -1,0 +1,52 @@
+table {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 60%;
+  margin: auto;
+  margin-top: 50px;
+  text-align: center;
+}
+
+
+table th {
+  border: 2px solid black;
+  padding: 8px;
+  text-align: center;
+  background-color: chartreuse;
+}
+
+#forms{
+  box-shadow: 1px 5px 18px 2px;
+  padding: 20px;
+  margin: 10px;
+  border-radius: 20px;
+  width: 360px; 
+  background-color: aquamarine;
+
+}
+h1{
+  padding: 10px;
+  color:green;
+}
+
+form input,select{
+         margin: 10px;
+         box-shadow: 1px 0.5px 8px 0.3px;
+         border-radius: 5px;
+}
+ #button{
+  background-color: green;
+  width: 80px;
+  height: 30px;
+  border-radius: 10px;
+  color: white;
+  border-color: white;
+ }
+ table td{
+  border: 1px solid black;
+  padding: 8px;
+   text-align: center;
+   background-color:aquamarine
+
+}
+
