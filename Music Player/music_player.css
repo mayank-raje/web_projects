@@ -1,0 +1,77 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(to right, #1e3c72, #2a5298);
+    color: #fff;
+    padding: 20px;
+    margin: 0;
+  }
+  .container {
+    max-width: 900px;
+    margin: auto;
+    background: #222;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  }
+  h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  input[type="text"] {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    border: none;
+    font-size: 16px;
+  }
+  .playlist {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 15px;
+  }
+  .song {
+    padding: 15px;
+    border-radius: 10px;
+    background: #333;
+    transition: background 0.3s;
+    cursor: pointer;
+  }
+  .song:hover {
+    background: #444;
+  }
+  .song.active {
+    border: 2px solid #00bfff;
+  }
+  .now-playing {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  .player-controls {
+    margin-top: 30px;
+    text-align: center;
+  }
+  .controls {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  button {
+    font-size: 1.5em;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 50px;
+    background: #00bfff;
+    color: white;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  button:hover {
+    background: #009acd;
+  }
+  .volume-control input[type="range"] {
+    vertical-align: middle;
+  }
