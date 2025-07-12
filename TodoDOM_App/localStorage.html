@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>local storage</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+<script>
+
+    // path inspect on web go to console go to application and loca storage
+    // feed into localstrorage
+
+    localStorage.setItem("name", "mayank");
+    localStorage.setItem("age", 20);
+    localStorage.setItem("id", 1);
+
+localStorage.setItem("array", JSON.stringify([1,2,3]));
+
+    // get
+
+    let name = localStorage.getItem("name");
+    console.log(name);
+
+   let arr =JSON.parse(localStorage.getItem("array"))
+    console.log(arr);
+
+
+    // remove
+
+    localStorage.removeItem("age");
+
+    // delete table
+
+    localStorage.clear();
+
+
+    // to stare the array and object in local storage  used  -
+
+    // 1 .  to feed use JSON.stringyFy(..)
+    // 2. to read the data JSON.parse(..)
+
+</script>
