@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-commerce cart page</title>
+    <style>
+        * {
+            text-align: center;
+        }
+
+        #heading {
+            color:rgb(89, 152, 131);
+        }
+        #tt{
+            color: rgb(59, 105, 90);
+        }
+        #search{
+         background-color:aquamarine;
+            height: 15px;
+            width: 260px;
+            text-align: left;
+            padding: 10px;
+            border-radius: 10px;
+            color: rgb(53, 99, 42);
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+           
+        }
+        select {
+                    height: 35px;
+                    width: 100px;
+                    background-color:aquamarine;
+                    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+                  
+        }
+
+        .cont {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20;
+            padding: 20px;
+
+        }
+
+        img {
+            width: 200px;
+            height: 200px;
+        }
+
+        button {
+            margin: 10px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 10px;
+            background-color: rgb(74, 191, 191);
+            color: aliceblue;
+        }
+
+        button:hover {
+            cursor: pointer;
+            background-color: rgb(58, 160, 160);
+
+        }
+
+        .cont>div {
+            border-radius: 10px;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+            padding: 10px;
+            margin: 15px;
+
+
+        }
+
+        .cont>div:hover {
+            box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+        }
+
+        @media screen and (max-width:1250px) and (min-width:800px) {
+            .cont {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media screen and (max-width:800px) {
+            .cont {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media screen and (max-width:350px) {
+            .cont {
+                grid-template-columns: repeat(1, 1fr);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1 id="heading">Welcome to Cart Page</h1>
+
+    <input type="text" placeholder="Search product..." id="search" oninput="search()">
+
+    <select name="" id="sort" onchange="sort()">
+        <option value="chose">chose</option>
+        <option value="Ascending">Ascending</option>
+        <option value="descending">Discending</option>
+    </select>
+
+    <h1 id="tt">Total</h1>
+
+
+    <a href="./ecommerce_Web_Site.html">GO to Main Page</a>
+    <div class="cont"></div>
+
+</body>
+
+</html>
+
+<script>
+
+
+    let cart = JSON.parse(localStorage.getItem("cartarr")) || [];
+
+    let total = cart.reduce((acc, el) => {
+        return acc + el.price
+    }, 0)
+
+    document.querySelector("#tt").innerText = total;
+    displayCard(cart);
+
+    function displayCard(arr) {
+
+        document.querySelector(".cont").innerText = "";
+        arr.forEach((el, i) => {
+            const box = document.createElement("div");
+
+            const image = document.createElement("img");
+            image.setAttribute("src", el.image);
+
+            const title = document.createElement("h2");
+            title.innerText = `Title: ${el.title}`;
+
+            const description = document.createElement("p");
+            description.innerText = `Description: ${el.description}`;
+
+            const category = document.createElement("h3");
+            category.innerText = `Category: ${el.category}`;
+
+            const price = document.createElement("button");
+            price.innerText = `Price: ${el.price}`;
+
+            const rate = document.createElement("button");
+            rate.innerText = `Rate: ${el.rating.rate}`;
+
+            const Delete = document.createElement("button");
+            Delete.innerText = `Delete`;
+
+            Delete.addEventListener("click", function () {
+                
+                cart.splice(i, 1);
+                localStorage.setItem("cartarr", JSON.stringify(cart));
+
+                let total = cart.reduce((acc, el) => {
+                    return acc + el.price
+                }, 0)
+
+                document.querySelector("#tt").innerText = total;
+                displayCard(cart);
+
+            })
+
+            box.append(image, title, description, category, price, rate, Delete)
+
+            document.querySelector(".cont").append(box);
+
+
+
+        })
+    }
+
+    
+
+</script>
